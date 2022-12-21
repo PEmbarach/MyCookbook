@@ -14,3 +14,5 @@ class Recipe(models.Model):
     serves = models.CharField(max_length=100)
     category = models.CharField(max_length=100)
     recipe_date = models.DateField(default=datetime.now, blank=True)
+    recipe_image = models.ImageField(upload_to='photos/%d/%m/Y/', blank=True)
+    published = models.BooleanField(default=False)

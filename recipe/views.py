@@ -3,7 +3,7 @@ from .models import Recipe
 
 
 def index(request):
-    recipes = Recipe.objects.all()
+    recipes = Recipe.objects.order_by('-recipe_date').filter(published=True)
 
     data = {
         'recipes': recipes
