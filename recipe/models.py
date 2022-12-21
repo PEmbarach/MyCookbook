@@ -2,9 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from datetime import datetime
+from user.models import Users
 
 
 class Recipe(models.Model):
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
     recipe_name = models.CharField(max_length=200)
     ingredients = models.TextField()
     method_of_preparation = models.TextField()
