@@ -16,3 +16,6 @@ class Recipe(models.Model):
     recipe_date = models.DateField(default=datetime.now, blank=True)
     recipe_image = models.ImageField(upload_to='photos/%d/%m/Y/', blank=True)
     published = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.recipe_name

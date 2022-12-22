@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Users
 
-
 class UsersList(admin.ModelAdmin):
     list_display = ('id', 'name', 'email')
     list_display_links = ('id', 'name')
