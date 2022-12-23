@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 from recipe.models import Recipe
 
 
@@ -10,21 +10,22 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        if not name.strip():
-            print('The name field cannot be blank.')
+        if not empty_field(name):
+            messages.error(request, 'The name field cannot be blank.')
             return redirect('signup')
-        if not email.strip():
-            print('The email field cannot be blank.')
+        if not empty_field(email):
+            messages.error(request, 'The email field cannot be blank.')
             return redirect('signup')
-        if password != password2:
-            print('The passwords are not the same')
+        if password_not_match(password, password2):
+            messages.error(request, 'The passwords are not the same')
             return redirect('signup')
-        if User.objects.filter(email=email).exists():
-            print('User already registered')
+        if User.objects.filter(username=name).exists():
+            messages.error(request, 'User already registered')
             return redirect('signup')
         user = User.objects.create_user(username=name, email=email, password=password)
         user.save()
         print('User success')
+        messages.success(request, 'Signup successefully')
         return redirect('login')
     else:
         return render(request, 'final_user/signup.html')
@@ -35,7 +36,7 @@ def login(request):
         email = request.POST['email']
         password = request.POST['password']
         if email == '' or password == '':
-            print('Os estao em branco')
+            messages.error(request, 'The fields cannot be blank.')
             return redirect('login')
         print(email, password)
         if User.objects.filter(email=email).exists():
@@ -43,9 +44,7 @@ def login(request):
             user = auth.authenticate(request, username=name, password=password)
             if user is not None:
                 auth.login(request, user)
-                print('Login realizado com sucesso')
                 return redirect('dashboard')
-
     return render(request, 'final_user/login.html')
 
 
@@ -83,3 +82,11 @@ def create_recipe(request):
         return redirect('dashboard')
     else:
         return render(request, 'final_user/create_recipe.html')
+
+
+def empty_field(field):
+    return not field.strip()
+
+
+def password_not_match(password, password2):
+    return password != password2
