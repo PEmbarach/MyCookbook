@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'recipe',
-    'user',
     'final_user',
 ]
 

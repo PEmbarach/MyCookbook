@@ -84,6 +84,34 @@ def create_recipe(request):
         return render(request, 'final_user/create_recipe.html')
 
 
+def delete_recipe(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    recipe.delete()
+    return redirect('dashboard')
+
+
+def edit_recipe(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    recipe_to_edit = {'recipe': recipe}
+    return render(request, 'final_user/edit_recipe.html', recipe_to_edit)
+
+
+def update_recipe(request):
+    if request.method == 'POST':
+        recipe_id = request.POST['recipe_id']
+        recipe = Recipe.objects.get(pk=recipe_id)
+        recipe.recipe_name = request.POST['recipe_name']
+        recipe.ingredients = request.POST['ingredients']
+        recipe.method_of_preparation = request.POST['method_of_preparation']
+        recipe.time_of_preparation = request.POST['time_of_preparation']
+        recipe.serves = request.POST['serves']
+        recipe.category = request.POST['category']
+        if 'recipe_image' in request.FILES:
+            recipe.recipe_image = request.FILES['recipe_image']
+        recipe.save()
+        return redirect('dashboard')
+
+
 def empty_field(field):
     return not field.strip()
 
