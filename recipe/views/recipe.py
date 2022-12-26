@@ -2,13 +2,17 @@ from django.shortcuts import render,  get_list_or_404, get_object_or_404, redire
 from recipe.models import Recipe
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
     recipes = Recipe.objects.order_by('-recipe_date').filter(published=True)
+    paginator = Paginator(recipes, 6)
+    page = request.GET.get('page')
+    recipe_per_page = paginator.get_page(page)
 
     data = {
-        'recipes': recipes
+        'recipes': recipe_per_page 
     }
     return render(request, 'recipe/index.html', data)
 
