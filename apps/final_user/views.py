@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 
 def signup(request):
+    """ Register a new user in the system """
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -32,6 +33,7 @@ def signup(request):
 
 
 def login(request):
+    """ Log a user into the system """
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -49,11 +51,13 @@ def login(request):
 
 
 def logout(request):
+    """ Logout a user into the system """
     auth.logout(request)
     return redirect('index')
 
 
 def dashboard(request):
+    """ Directs the logged in user to a page for creating, viewing and editing their recipes """
     if request.user.is_authenticated:
         id = request.user.id
         recipes = Recipe.objects.order_by('-recipe_date').filter(user=id)
@@ -68,8 +72,10 @@ def dashboard(request):
 
 
 def empty_field(field):
+    """ Check that there is an empty field """
     return not field.strip()
 
 
 def password_not_match(password, password2):
+    """ Checks if the two given passwords are the same """
     return password != password2

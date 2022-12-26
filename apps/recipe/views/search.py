@@ -3,6 +3,7 @@ from django.shortcuts import render,  get_list_or_404, get_object_or_404, redire
 
 
 def search(request):
+    """ Search bar to find a specific recipe by name """
     recipes = Recipe.objects.order_by('-recipe_date').filter(published=True)
 
     if 'search' in request.GET:

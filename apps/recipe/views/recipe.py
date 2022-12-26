@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
+    """ Receives and organizes in pages, all published recipes """
     recipes = Recipe.objects.order_by('-recipe_date').filter(published=True)
     paginator = Paginator(recipes, 6)
     page = request.GET.get('page')
@@ -18,6 +19,7 @@ def index(request):
 
 
 def recipe(request, recipe_id):
+    """ Searches the recipe in the database according to the user's choice """
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
     show_recipe = {
@@ -27,9 +29,8 @@ def recipe(request, recipe_id):
     return render(request, 'recipe/recipe.html', show_recipe)
 
 
-
-
 def create_recipe(request):
+    """ Form for creating a recipe """
     if request.method == 'POST':
         recipe_name = request.POST['recipe_name']
         ingredients = request.POST['ingredients']
@@ -47,17 +48,21 @@ def create_recipe(request):
 
 
 def delete_recipe(request, recipe_id):
+    """ Way to delete a recipe """
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     recipe.delete()
     return redirect('dashboard')
 
 
 def edit_recipe(request, recipe_id):
+    """ Button to edit a recipe """
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     recipe_to_edit = {'recipe': recipe}
     return render(request, 'recipe/edit_recipe.html', recipe_to_edit)
 
+
 def update_recipe(request):
+    """ Form to edit a recipe and save the edition """
     if request.method == 'POST':
         recipe_id = request.POST['recipe_id']
         recipe = Recipe.objects.get(pk=recipe_id)
@@ -71,4 +76,3 @@ def update_recipe(request):
             recipe.recipe_image = request.FILES['recipe_image']
         recipe.save()
         return redirect('dashboard')
-
