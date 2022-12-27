@@ -11,14 +11,17 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        if not empty_field(name):
+        if empty_field(name):
             messages.error(request, 'The name field cannot be blank.')
             return redirect('signup')
-        if not empty_field(email):
+        if empty_field(email):
             messages.error(request, 'The email field cannot be blank.')
             return redirect('signup')
         if password_not_match(password, password2):
             messages.error(request, 'The passwords are not the same')
+            return redirect('signup')
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'User already registered')
             return redirect('signup')
         if User.objects.filter(username=name).exists():
             messages.error(request, 'User already registered')
