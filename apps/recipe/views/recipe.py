@@ -5,6 +5,7 @@ from django.contrib import auth, messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
+
 def index(request):
     """ Receives and organizes in pages, all published recipes """
     recipes = Recipe.objects.order_by('-recipe_date').filter(published=True)

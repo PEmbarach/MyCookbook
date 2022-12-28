@@ -5,7 +5,8 @@ from datetime import datetime
 
 
 class Recipe(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='recipe_author')
     recipe_name = models.CharField(max_length=200)
     ingredients = models.TextField()
     method_of_preparation = models.TextField()

@@ -2,15 +2,15 @@
 {% load static %}
 {%  block content%}
 
-    <!-- Preloader -->
+{% include 'partials/_search.html' %}
+
+{% include 'partials/_menu.html' %}
+
+    <!-- Preloader 
     <div id="preloader">
         <i class="circle-preloader"></i>
         <img src="{% static 'img/core-img/pizza.png' %}" alt="">
-    </div>
-
-    {% include 'partials/_search.html' %}
-
-    {% include 'partials/_menu.html' %}
+    </div> -->
 
     <!-- ##### Best Receipe Area Start ##### -->
     <section class="best-receipe-area">
@@ -42,7 +42,7 @@
     <!-- ##### Best Receipe Area End ##### -->
 
     <!-- ##### Pagination ##### -->
-    <section class="top-catagory-area section-padding-20-0">
+    <div class="top-catagory-area section-padding-20-0">
         <div class="container">
             {% if recipes.has_other_pages %}
             <ul class="pagination">
@@ -78,7 +78,7 @@
             </ul>
             {% endif %}
         </div>
-    </section>
+    </div>
     <!-- ##### Pagination End ##### -->
 
     {% include 'partials/_footer.html' %}
