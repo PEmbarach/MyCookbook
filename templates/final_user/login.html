@@ -1,59 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- Preloader -->
-<div id="preloader">
-    <i class="circle-preloader"></i>
-    <img src="{% static 'img/core-img/pizza.png' %}" alt="">
-</div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/pizza.png' %}" alt="">
+    </div>
 
-{% include 'partials/_search.html' %}
+    {% include 'partials/_search.html' %}
 
-{% include 'partials/_menu.html' %}
+    {% include 'partials/_menu.html' %}
 
-<!-- ##### Contact Form Area Start ##### -->
-<div class="contact-area section-padding-0-80">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading">
-                    <h2>Login</h2>
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Login</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% include 'partials/_alert.html' %}
-        <div class="row">
-            <div class="col-12">
-                <div class="contact-form-area">
-                    <form action="{% url 'login' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-12 col-lg-12">
-                            <label for="email"><b>Email</b></label>
-                                <input type="text" id="email" class="form-control" name="email" placeholder="Registered email">
-                            </div>
+            {% include 'partials/_alert.html' %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
                                 <div class="col-12 col-lg-12">
-                                <label for="password"><b>Password</b></label>
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                <label for="email"><b>Email</b></label>
+                                    <input type="text" id="email" class="form-control" name="email" placeholder="Registered email">
+                                </div>
+                                    <div class="col-12 col-lg-12">
+                                    <label for="password"><b>Password</b></label>
+                                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-success" type="submit">Login</button>
+                                    <button type="button" class="btn btn-primary" onclick="exibirCriarConta()">Don't have an account yet? Click here</button>
+                                </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <button class="btn btn-success" type="submit">Login</button>
-                                <button type="button" class="btn btn-primary" onclick="exibirCriarConta()">Don't have an account yet? Click here</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-function displayCreateAccount()
-{
-     location.href = "{% url 'signup' %}";
-} 
-</script>
+    <script>
+    function displayCreateAccount()
+    {
+        location.href = "{% url 'signup' %}";
+    } 
+    </script>
 
-{% include 'partials/_footer.html' %}
+    {% include 'partials/_footer.html' %}
 {% endblock %}

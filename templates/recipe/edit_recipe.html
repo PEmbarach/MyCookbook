@@ -1,77 +1,77 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- Preloader -->
-<div id="preloader">
-    <i class="circle-preloader"></i>
-    <img src="{% static 'img/core-img/pizza.png' %}" alt="">
-</div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/pizza.png' %}" alt="">
+    </div>
 
-{% include 'partials/_search.html' %}
+    {% include 'partials/_search.html' %}
 
-{% include 'partials/_menu.html' %}
+    {% include 'partials/_menu.html' %}
 
-<!-- ##### Contact Form Area Start ##### -->
-<div class="contact-area section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading">
-                    <h3>Edit your recipe here, {{ user.username }} :)</h3>
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Edit your recipe here, {{ user.username }} :)</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% include 'partials/_alert.html'%}
-        <div class="row">
-            <div class="col-12">
-            <p>All fields are mandatory</p>
-                <div class="contact-form-area">
-                    <form action="{% url 'update_recipe' %}" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <input type="text" id="recipe_id" class="form-control" name="recipe_id" value="{{recipe.id}}" hidden>
-                        <div class="row">
-                            <div class="col-12 col-lg-12">
-                                <label for=""><b>Título da receita</b></label>
-                                <input type="text" id="recipe_name" class="form-control" name="recipe_name" placeholder="Ex. Lemon juice" value="{{recipe.recipe_name}}" required>
+            {% include 'partials/_alert.html'%}
+            <div class="row">
+                <div class="col-12">
+                <p>All fields are mandatory</p>
+                    <div class="contact-form-area">
+                        <form action="{% url 'update_recipe' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="text" id="recipe_id" class="form-control" name="recipe_id" value="{{recipe.id}}" hidden>
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <label for=""><b>Título da receita</b></label>
+                                    <input type="text" id="recipe_name" class="form-control" name="recipe_name" placeholder="Ex. Lemon juice" value="{{recipe.recipe_name}}" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="file"><b>Ingredients</b></label>
+                                    <textarea class="form-control" name="ingredients" cols="30" rows="10" placeholder="Ex. 2 Lemon &#10;200ml of water" required>{{recipe.ingredients}}</textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="file"><b>Method of preparation</b></label>
+                                    <textarea class="form-control" name="method_of_preparation" cols="30" rows="10" placeholder="Ex. Carefully slice the lemon and squeeze it into the glass.  &#10;Mix with water and serve." required>{{recipe.method_of_preparation}}</textarea>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <label for="file"><b>Time of preparation (minutes)</b></label>
+                                    <input type="number" class="form-control" name="time_of_preparation" placeholder="Ex. 2" value="{{recipe.time_of_preparation}}" required>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <label for="file"><b>Serves</b></label>
+                                    <input type="text" class="form-control" name="serves" placeholder="Ex. serves 1 people" value="{{recipe.serves}}" required>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <label for="file"><b>Category</b></label>
+                                    <input type="text" class="form-control" name="category" placeholder="Ex.Juices and drinks" value="{{recipe.category}}"required>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <label for="file"><b>Photo used</b></label>
+                                    <img src="{{ recipe.recipe_image.url }}" alt="">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <label for="file"><b>Add new photo</b></label>
+                                    <input type="file" class="form-control" name="recipe_image">
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-success" type="submit">Update</button>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <label for="file"><b>Ingredients</b></label>
-                                <textarea class="form-control" name="ingredients" cols="30" rows="10" placeholder="Ex. 2 Lemon &#10;200ml of water" required>{{recipe.ingredients}}</textarea>
-                            </div>
-                            <div class="col-12">
-                                <label for="file"><b>Method of preparation</b></label>
-                                <textarea class="form-control" name="method_of_preparation" cols="30" rows="10" placeholder="Ex. Carefully slice the lemon and squeeze it into the glass.  &#10;Mix with water and serve." required>{{recipe.method_of_preparation}}</textarea>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <label for="file"><b>Time of preparation (minutes)</b></label>
-                                <input type="number" class="form-control" name="time_of_preparation" placeholder="Ex. 2" value="{{recipe.time_of_preparation}}" required>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <label for="file"><b>Serves</b></label>
-                                <input type="text" class="form-control" name="serves" placeholder="Ex. serves 1 people" value="{{recipe.serves}}" required>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <label for="file"><b>Category</b></label>
-                                <input type="text" class="form-control" name="category" placeholder="Ex.Juices and drinks" value="{{recipe.category}}"required>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <label for="file"><b>Photo used</b></label>
-                                <img src="{{ recipe.recipe_image.url }}" alt="">
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <label for="file"><b>Add new photo</b></label>
-                                <input type="file" class="form-control" name="recipe_image">
-                            </div>
-                            <div class="col-12 text-center">
-                                <button class="btn btn-success" type="submit">Update</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-{% include 'partials/_footer.html' %}
+    {% include 'partials/_footer.html' %}
 {% endblock %}

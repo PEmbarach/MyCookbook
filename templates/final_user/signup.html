@@ -1,59 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- Preloader -->
-<div id="preloader">
-    <i class="circle-preloader"></i>
-    <img src="{% static 'img/core-img/pizza.png' %}" alt="">
-</div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/pizza.png' %}" alt="">
+    </div>
 
-{% include 'partials/_search.html' %}
+    {% include 'partials/_search.html' %}
 
-{% include 'partials/_menu.html' %}
+    {% include 'partials/_menu.html' %}
 
-<!-- ##### Contact Form Area Start ##### -->
-<div class="contact-area section-padding-0-80">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading">
-                    <h2>SignUp</h2>
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>SignUp</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% include 'partials/_alert.html' %}
-        <div class="row">
-            <div class="col-12">
-                <div class="contact-form-area">
-                    <form action="{% url 'signup' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-12 col-lg-12">
-                                <label for="nome_receita"><b>Full Name</b></label>
-                                <input type="text" class="form-control" name="name" placeholder="Ex.:Pablo Embarach" required>
+            {% include 'partials/_alert.html' %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="{% url 'signup' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <label for="nome_receita"><b>Full Name</b></label>
+                                    <input type="text" class="form-control" name="name" placeholder="Ex.:Pablo Embarach" required>
+                                </div>
+                                <div class="col-12 col-lg-12">
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="email" class="form-control" name="email" placeholder="Ex.: pablo@recipe.com" required>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <label for="password"><b>Password</b></label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password required" required>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <label for="password2"><b>Password Confirmation</b></label>
+                                    <input type="password" class="form-control" name="password2" placeholder="Enter your password one more time" required>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-success" type="submit">Create your account</button>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-12">
-                                <label for="email"><b>Email</b></label>
-                                <input type="email" class="form-control" name="email" placeholder="Ex.: pablo@recipe.com" required>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <label for="password"><b>Password</b></label>
-                                <input type="password" class="form-control" name="password" placeholder="Password required" required>
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <label for="password2"><b>Password Confirmation</b></label>
-                                <input type="password" class="form-control" name="password2" placeholder="Enter your password one more time" required>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button class="btn btn-success" type="submit">Create your account</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-{% include 'partials/_footer.html' %}
+    {% include 'partials/_footer.html' %}
 {% endblock %}
