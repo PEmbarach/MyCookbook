@@ -11,60 +11,61 @@
 
     {% include 'partials/_menu.html' %}
 
-        <!-- Receipe Slider -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="receipe-slider owl-carousel">
-                        {% if recipe.recipe_image == '' %}
-                            <img src="{% static 'img/bg-img/tomate_banner.jpg' %}">
-                        {% else %}
-                            <img src="{{ recipe.recipe_image.url }}" alt="">
-                        {% endif %}
-                    </div>
+    <!-- Receipe Slider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="receipe-slider owl-carousel">
+                    {% if recipe.recipe_image == '' %}
+                        <img src="{% static 'img/bg-img/tomate_banner.jpg' %}">
+                    {% else %}
+                        <img src="{{ recipe.recipe_image.url }}" alt="">
+                    {% endif %}
                 </div>
             </div>
         </div>
-        
-        <!-- Receipe Content Area -->
-        <div class="receipe-content-area">
-            <div class="container">
+    </div>
+    
+    <!-- Receipe Content Area -->
+    <div class="receipe-content-area">
+        <div class="container">
 
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <div class="receipe-headline my-5">
-                            <span>{{recipe_date}}</span>
-                            <h2>{{recipe.recipe_name}}</h2>
-                            <div class="receipe-duration">
-                                <h6>Prep: {{recipe.time_of_preparation}}</h6>
-                                <h6>Server: {{recipe.serves}}</h6>
-                                <h6>Category: {{recipe.category}}</h6>
-                                <h6>Name: {{recipe.user}}</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <p>{{recipe.method_of_preparation}}</p>
-                        </div>
-                    </div>
-
-                    <!-- Ingredientes -->
-                    <div class="col-12 col-lg-4">
-                        <div class="ingredients">
-                            <h4>Ingredients</h4>
-                            <div class="ingredients">
-                                <p>{{recipe.ingredients}}</p>
-                            </p>
-                            </div>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="receipe-headline my-5">
+                        <span>{{recipe_date}}</span>
+                        <h2>{{recipe.recipe_name}}</h2>
+                        <div class="receipe-duration">
+                            <h6>Prep: {{recipe.time_of_preparation}}</h6>
+                            <h6>Server: {{recipe.serves}}</h6>
+                            <h6>Category: {{recipe.category}}</h6>
+                            <h6>Name: {{recipe.user}}</h6>
                         </div>
                     </div>
                 </div>
-                <!-- Ingredientes -->
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <!-- Single Preparation Step -->
+                    <div class="single-preparation-step d-flex">
+                        <p>{{recipe.method_of_preparation}}</p>
+                    </div>
+                </div>
 
+                <!-- Ingredientes -->
+                <div class="col-12 col-lg-4">
+                    <div class="ingredients">
+                        <h4>Ingredients</h4>
+                        <div class="ingredients">
+                            <p>{{recipe.ingredients}}</p>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ingredientes -->
+        </div>
+    </div>
     {% include 'partials/_footer.html' %}
 
 {% endblock %}
