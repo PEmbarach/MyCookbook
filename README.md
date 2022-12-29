@@ -8,7 +8,7 @@ MyCookbook is a website with the purpose of being an online cookbook, where the 
 
 
 ## Showcase
-![Preview](#)
+![Preview](docs/Mockup.png)
 
 ### Live Website
 A deployed link to the website can be found [here](https://my-cookbook.herokuapp.com/)
@@ -223,7 +223,7 @@ No known unfixed bugs present at the time of submission
   <details>
   <summary>Verified using the W3C CSS Validator, which had errors or warnings present. Click here to see the W3C CSS Validator result</summary>
 
-  ![](docs/w3c_css.png)
+  ![](docs/w3c_CSS.png)
 
   </details>
 <br>
@@ -309,5 +309,6 @@ No known unfixed bugs present at the time of submission
 * To create this website, I relied on material covered in the Full Stack Development course by Code Institute.
 * I also sourced information and help from a variety of sources such as Slack Community Channels, Udemy, W3Schools, MDN and YouTube for Online Web Tutorials and resources.
 * Martina Terlevic for reviewing my work and providing valuable feedback and advice.
+* Special thanks to Jhonatan Santos, who helped me to give movement to the project, correcting me and indicating ways for JS and CSS.
 
 This project is for educational use only and was created for the Code Institute Module.
