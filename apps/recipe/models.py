@@ -9,7 +9,7 @@ class Recipe(models.Model):
                              related_name='recipe_author')
     recipe_name = models.CharField(max_length=200)
     ingredients = models.TextField()
-    method_of_preparation = models.TextField()
+    method_preparation = models.TextField()
     time_of_preparation = models.IntegerField()
     serves = models.CharField(max_length=100)
     category = models.CharField(max_length=100)

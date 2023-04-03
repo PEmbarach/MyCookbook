@@ -42,11 +42,10 @@ A deployed link to the website can be found [here](https://my-cookbook.herokuapp
 * The user is able to view all other recipes approved by admin by using the search functionality
 * The user is able to make changes into the recipe by editing recipe
 
-## Agile Development Process
-* The MoSCoW method was adopted to approach to prioritizing which project requirements for must have, should have, could have and will not have.
-* I used GitHub for Automated Kanban Project Management. [Click Here](https://github.com/users/PEmbarach/projects/4)
-* I used GitHub project board to generate user story templates.
-* I used the automated kanban process and when It is connected to my repo. This allowed me to monitor, track and create user stories.
+
+## User Stories
+I have included links to the [GitHub Issues](https://github.com/PEmbarach/MyCookbook/issues) for this project, as well as the [KANBAN board](https://github.com/users/PEmbarach/projects/4).
+
 
 ## Design
 
@@ -154,6 +153,25 @@ When a user goes to the Logout they will be redirected to home page.
 ### User Dashboard
 ![Preview](docs/pages/User_dashboard.png)
 <br>
+
+### C.R.U.D:
+
+#### Create (button):
+- The button to invite you to submit a new artwork will be found on the **"Prints"** page.
+- It is only visible to users who are signed in.
+![CRUD - create button](docs/crud/create.png)
+
+#### Create (form):
+- This page may only be accessed from the button on the **"Prints"** page.
+![CRUD - create form](docs/crud/create_form.png)
+
+#### Read:
+![CRUD - read](docs/crud/read.png)
+
+#### Update & Delete:
+- The update & delete feature is only available to the user who who directly submitted the artwork.
+![CRUD - update & delete](docs/crud/update_and_delete.png)
+
 
 ## Future Features
 * Allows users to like/ unlike a recipe.

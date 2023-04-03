@@ -96,7 +96,7 @@ def update_recipe(request):
         recipe = Recipe.objects.get(pk=recipe_id)
         recipe.recipe_name = request.POST['recipe_name']
         recipe.ingredients = request.POST['ingredients']
-        recipe.method_of_preparation = request.POST['method_of_preparation']
+        recipe.method_preparation = request.POST['method_preparation']
         recipe.time_of_preparation = request.POST['time_of_preparation']
         recipe.serves = request.POST['serves']
         recipe.category = request.POST['category']
