@@ -22,9 +22,9 @@
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
                         {% if recipe.recipe_image == '' %}
-                            <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                            <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="" >
                         {% else %}
-                            <img src="{{ recipe.recipe_image.url }}" alt="">
+                            <img src="{{ recipe.recipe_image.url }}" alt="" style="width: 250px; height: 250px; max-width: 100%;">
                         {% endif %}
                         <div class="receipe-content">
                             <a href="{% url 'recipe' recipe.id %}">

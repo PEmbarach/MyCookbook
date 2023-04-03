@@ -19,7 +19,7 @@
                     {% if recipe.recipe_image == '' %}
                         <img src="{% static 'img/bg-img/tomate_banner.jpg' %}">
                     {% else %}
-                        <img src="{{ recipe.recipe_image.url }}" alt="">
+                        <img src="{{ recipe.recipe_image.url }}" alt=""  style="width: 400px; height: 400px; max-width: 100%;">
                     {% endif %}
                 </div>
             </div>
