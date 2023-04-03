@@ -44,7 +44,7 @@ A deployed link to the website can be found [here](https://my-cookbook.herokuapp
 
 ## Agile Development Process
 * The MoSCoW method was adopted to approach to prioritizing which project requirements for must have, should have, could have and will not have.
-* I used GitHub for Automated Kanban Project Management. [Click Here]<img src="docs/agile.png">
+* I used GitHub for Automated Kanban Project Management. [Click Here](https://github.com/users/PEmbarach/projects/4)
 * I used GitHub project board to generate user story templates.
 * I used the automated kanban process and when It is connected to my repo. This allowed me to monitor, track and create user stories.
 
@@ -73,13 +73,23 @@ The ERD entity relationship diagram helped visually to confirm user roles and th
   <summary>Click here to view website navigation:</summary>
 
   ![](docs/Sitemap.jpg)
+</details>
+<br>
 
-  </details>
+### Database Schema
+
+Below is the template created to produce the required database structure.
+
+<details>
+
+![](docs/database_schema.png)
+</details>
 
 <br>
 <br>
 
 ## Features
+
 <br>
 
 ### Existing Features
@@ -205,7 +215,7 @@ No known unfixed bugs present at the time of submission
  <details>
   <summary>Click here to see the Lighthouse Report</summary>
 
-  ![](docs/lighthouse.png)
+  ![](docs/testing/lighthouse.png)
 
   </details>
 <br>
@@ -214,7 +224,7 @@ No known unfixed bugs present at the time of submission
   <details>
   <summary>Verified using the W3C Markup Validator, which had errors or warnings present. Click here to see the W3C Markup Validator result</summary>
 
-  ![](docs/w3c_html.png)
+  ![](docs/testing/w3c_html.png)
 
   </details>
 <br>
@@ -223,9 +233,57 @@ No known unfixed bugs present at the time of submission
   <details>
   <summary>Verified using the W3C CSS Validator, which had errors or warnings present. Click here to see the W3C CSS Validator result</summary>
 
-  ![](docs/w3c_CSS.png)
+  ![](docs/testing/w3c_CSS.png)
 
   </details>
+<br>
+
+### PEP8 Validator
+<details>
+<summary>Checked Python code is formatted according to the PEP 8 standards </summary>
+
+#### final_user (app.py)
+![](docs/testing/pep8/Final_user/Final_user(apps.py).png)
+<br>
+
+#### final_user (url.py)
+![](docs/testing/pep8/Final_user/Final_user(urls.py).png)
+<br>
+
+#### final_user (views.py)
+![](docs/testing/pep8/Final_user/Final_user(views.py).png)
+<br>
+
+#### MyCookbook (asgi.py)
+![](docs/testing/pep8/MyCookbook/MyCookbook(asgi.py).png)
+<br>
+
+#### MyCookbook (urls.py)
+![](docs/testing/pep8/MyCookbook/MyCookbook(urls.py).png)
+<br>
+
+#### MyCookbook (wsgi.py)
+![](docs/testing/pep8/MyCookbook/MyCookbook(wsgi.py).png)
+<br>
+
+#### recipe (admin.py)
+![](docs/testing/pep8/Recipe/recipe(admin.py).png)
+<br>
+
+#### recipe (apps.py)
+![](docs/testing/pep8/Recipe/recipe(apps.py).png)
+<br> 
+
+#### recipe (models.py)
+![](docs/testing/pep8/Recipe/recipe(models.py).png)
+<br>
+
+#### recipe (urls.py)
+![](docs/testing/pep8/Recipe/recipe(urls.py).png)
+<br> 
+</details>
+
+<br>
 <br>
 
 ### Manual Testing
@@ -269,8 +327,22 @@ No known unfixed bugs present at the time of submission
 <br>
 
 ## Deployment
-* This project was developed using a GitPod workspace. The code was committed to Git and pushed to GitHub using the terminal.
 
+### Github Deployment
+* Logged into the Github account, navigate to Repositories and click New.
+* Select the template (in this case Code-Institute-Org/gitpod-full-tamplate was used).
+* Name the repository.
+* Select the Public option.
+* Click Create Repository.
+* In the upper right corner, click on Gitpod, which will open the online VSCode text editor.
+* After creating the project, in the terminal, it is deployed as follows.
+* In the terminal first type "git add."
+* Followed by "git commit -m "comment" ".
+* And finally "git push"
+
+<br>
+
+### Heroku Deployment
 * Log in to [Heroku](https://id.heroku.com/login) or create an account
 * On the main page click New and Create New App
 * Note: new app name must be unique
@@ -303,12 +375,14 @@ No known unfixed bugs present at the time of submission
 * Code Institute - [Hello Django](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/dc049b343a9b474f8d75822c5fda1582/121ef050096f4546a1c74327a9113ea6/) - Task Manager Walkthrough
 * Code Institute - [I think therefore I blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/
 ) - Django blog project Walkthrough
+* [Django Documentation](https://docs.djangoproject.com/en/4.1/)
+* [Codemy's YouTube Channel](https://www.youtube.com/c/Codemycom/playlists)
 <br>
 
 ## Acknowledgements
 * To create this website, I relied on material covered in the Full Stack Development course by Code Institute.
 * I also sourced information and help from a variety of sources such as Slack Community Channels, Udemy, W3Schools, MDN and YouTube for Online Web Tutorials and resources.
-* Martina Terlevic for reviewing my work and providing valuable feedback and advice.
+* Martina Terlevic and Rohit Sharma for reviewing my work and providing valuable feedback and advice.
 * Special thanks to Jhonatan Santos, who helped me to give movement to the project, correcting me and indicating ways for JS and CSS.
 
 This project is for educational use only and was created for the Code Institute Module.

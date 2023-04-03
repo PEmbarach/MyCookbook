@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+    <!--500 error page-->
+    <!-- Logo -->
+    <a class="nav-brand" href="{% url 'index' %}"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <p>
+                <br>
+                <h3>500 - Internal Server Error :(
+                    <br>
+                    <br>
+                    Ooops something went wrong.
+                    <br>
+                    <br>
+                    <em>Try to refresh this page or feel free to contact us if the problem persists.</em>
+                </h3>
+                <br>
+            </p>
+        </div>
+    </div>
+{% endblock %}

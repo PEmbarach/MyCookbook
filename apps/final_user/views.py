@@ -26,7 +26,8 @@ def signup(request):
         if User.objects.filter(username=name).exists():
             messages.error(request, 'User already registered')
             return redirect('signup')
-        user = User.objects.create_user(username=name, email=email, password=password)
+        user = User.objects.create_user(username=name, email=email,
+                                        password=password)
         user.save()
         print('User success')
         messages.success(request, 'Signup successefully')
@@ -60,7 +61,8 @@ def logout(request):
 
 
 def dashboard(request):
-    """ Directs the logged in user to a page for creating, viewing and editing their recipes """
+    """ Directs the logged in user to a page for creating, viewing and editi
+        their recipes """
     if request.user.is_authenticated:
         id = request.user.id
         recipes = Recipe.objects.order_by('-recipe_date').filter(user=id)
@@ -82,3 +84,13 @@ def empty_field(field):
 def password_not_match(password, password2):
     """ Checks if the two given passwords are the same """
     return password != password2
+
+
+def handler404(request, exception, template_name="404_error.html"):
+    response = render_to_response(template_name)
+    response.status_code = 404
+    return response
+
+
+def handler500(request, *args, **argv):
+    return render(request, '500_error.html', status=500)
