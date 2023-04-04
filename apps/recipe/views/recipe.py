@@ -32,6 +32,7 @@ def recipe(request, recipe_id):
     return render(request, 'recipe/recipe.html', show_recipe)
 
 
+@login_required(login_url='/final_user/login')
 def create_recipe(request):
     """ Form for creating a recipe """
     if request.method == 'POST':
@@ -56,7 +57,7 @@ def create_recipe(request):
         return render(request, 'recipe/create_recipe.html')
 
 
-@login_required
+@login_required(login_url='/final_user/login')
 def delete_recipe(request, recipe_id):
     """ Way to delete a recipe """
 
